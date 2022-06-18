@@ -69,7 +69,7 @@ function otpMail(email, otp) {
     var url = 'Your OTP is - ' + otp
 
     sendMail(email,
-        "Bhukkad's Place",
+        "Your Todo",
         otp,
         url,
         function(err) {
