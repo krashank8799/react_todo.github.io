@@ -1,0 +1,28 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.button>* {
+    margin: 0px 2px;
+}
+
+.outlined {
+    border: 2px solid var(--secondaryColor);
+    background: whitesmoke;
+    color: var(--secondaryColor);
+}
+
+.filled {
+    background: var(--secondaryColor);
+    border: none;
+    color: white;
+}
+
+.plain {
+    border: none;
+    background-color: aliceblue;
+    color: var(--secondaryColor);
+}
