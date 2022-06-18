@@ -11,10 +11,11 @@ app.use(express.json());
 
 var sendMail = require('./utils/verifymail')
 
-// const todos = [];
+var otpUserName;
 
 app.post('/', function(req, res) {
     console.log("name", req.body.username)
+    otpUserName = req.body.username;
     fs.readFile("./todo.txt", "utf-8", function(err, data) {
         var data = JSON.parse(data)
         console.log(data, data.length);
@@ -69,7 +70,7 @@ function otpMail(email, otp) {
     var url = 'Your OTP is - ' + otp
 
     sendMail(email,
-        "Your Todo",
+        "Hii!!.."+otpUserName,
         otp,
         url,
         function(err) {
