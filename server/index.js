@@ -14,7 +14,6 @@ var sendMail = require('./utils/verifymail').sendMailToUser
 var otpUserName;
 
 app.post('/', function(req, res) {
-    console.log("name", req.body.username)
     otpUserName = req.body.username;
     fs.readFile("./todo.txt", "utf-8", function(err, data) {
         var data = JSON.parse(data)
