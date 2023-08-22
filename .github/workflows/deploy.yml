@@ -16,9 +16,11 @@ jobs:
       - name: Build and Deploy
         run: |
           # Replace these commands with your actual build and deployment steps
+          cd server
           npm install
-          # node index.js
-          npm start
+          node index.js
+          
+          # npm start
           cp -R build/* /path/to/your/github/pages/repo
 
       - name: Commit and Push Changes
