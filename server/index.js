@@ -9,7 +9,7 @@ var port = 8080
 app.use(cors())
 app.use(express.json());
 
-var sendMail = require('./utils/verifymail')
+var sendMail = require('./utils/verifymail').sendMailToUser
 
 var otpUserName;
 
@@ -38,6 +38,7 @@ app.post('/', function(req, res) {
 
 app.post("/savedetails", function(req, res) {
     console.log(req.body.userName + req.body.userEmail)
+    otpUserName = req.body.userName;
 
 
     var otp = Math.floor(Math.random() * (999999 - 100000) + 100000);
@@ -67,12 +68,10 @@ app.post("/checkotp", function(req, res) {
 })
 
 function otpMail(email, otp) {
-    var url = 'Your OTP is - ' + otp
+    var body = 'Hii!!.. ' +otpUserName + ', your login OTP is - ' + otp;
 
     sendMail(email,
-        "Hii!!.."+otpUserName,
-        otp,
-        url,
+        body,
         function(err) {
             if (err) {
                 res.render("error.ejs", { errorMsg: "Error While sending Otp!" })
