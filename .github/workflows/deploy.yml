@@ -17,7 +17,7 @@ jobs:
         run: |
           # Replace these commands with your actual build and deployment steps
           npm install
-          node index.js
+          # node index.js
           npm start
           cp -R build/* /path/to/your/github/pages/repo
 
